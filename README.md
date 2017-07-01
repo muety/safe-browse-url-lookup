@@ -36,6 +36,14 @@ lookup.checkMulti(['http://vipprojects.cn', 'https://ferdinand-muetsch.de'])
     });
 ```
 
+The promise returns a map from URLs to boolean values, where `true` means a match (= a malicious URL).
+```json
+{
+    "https://anchr.io": false,
+    "https://eelslap.com": false
+}
+```
+
 ### Options
 To initialize the library, you call its exported function with an options object that can have the following properties.
 
