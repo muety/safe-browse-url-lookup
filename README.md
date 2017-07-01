@@ -42,3 +42,9 @@ To initialize the library, you call its exported function with an options object
 * `apiKey` - It's mandatory to pass your API key you got from the Google Developer's Console
 * `clientId` _[optional]_ - A client ID that (hopefully) uniquely identifies the client implementation of the Safe Browsing API. ([Reference](https://developers.google.com/safe-browsing/v4/reference/rest/v4/ClientInfo)). If not specified, a default value is used.
 * `clientVersion` _[optional]_ - The version of the client implementation. If not specified, a default value is used.
+
+## Contribute
+Feel free to implement the remaining API features and make a PR! 
+
+## License
+MIT @ [Ferdinand Mütsch](https://ferdinand-muetsch.de)
