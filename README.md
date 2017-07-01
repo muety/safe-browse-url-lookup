@@ -8,7 +8,7 @@ Currently this library only implements lookup functionality for URLs, where all 
 ## How to use
 ### Check single URL for safety
 ```javascript
-const lookup = require('./lib')({ apiKey: '<YOU GOOGLE API KEY HERE>' });
+const lookup = require('safe-browse-url-lookup')({ apiKey: '<YOU GOOGLE API KEY HERE>' });
 
 lookup.checkSingle('http://vipprojects.cn')
     .then(isMalicious => {
@@ -22,7 +22,7 @@ lookup.checkSingle('http://vipprojects.cn')
 
 ### Check multiple URLs at once
 ```javascript
-const lookup = require('./lib')({ apiKey: '<YOU GOOGLE API KEY HERE>' });
+const lookup = require('safe-browse-url-lookup')({ apiKey: '<YOU GOOGLE API KEY HERE>' });
 
 lookup.checkMulti(['http://vipprojects.cn', 'https://ferdinand-muetsch.de'])
     .then(urlMap => {
