@@ -28,12 +28,12 @@ function checkMulti(urls) {
             method: 'POST',
             json: body
         }, (err, response, body) => {
-            if (err || !body || !body.hasOwnProperty('matches')) {
+            if (err || !body) {
                 console.log('[ERROR] An error has occured.');
                 return reject(err);
             }
 
-            let matchingUrls = body.matches.map(m => m.threat.url);
+            let matchingUrls = body.hasOwnProperty('matches') ? body.matches.map(m => m.threat.url) : [];
             resolve(Object.assign({}, ...urls.map(url => {
                 let entry = {};
                 entry[url] = matchingUrls.includes(url);
