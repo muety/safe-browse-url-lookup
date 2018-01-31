@@ -1,6 +1,6 @@
 'use strict';
 
-const request = require('request');
+const axios = require('axios');
 const BASE_URL = 'https://safebrowsing.googleapis.com/v4/threatMatches:find?key={key}';
 
 let options = {
@@ -22,25 +22,15 @@ function checkMulti(urls) {
         }
     }
 
-    return new Promise((resolve, reject) => {
-        request({
-            url: BASE_URL.replace('{key}', options.apiKey),
-            method: 'POST',
-            json: body
-        }, (err, response, body) => {
-            if (err || !body) {
-                console.log('[ERROR] An error has occured.');
-                return reject(err);
-            }
-
-            let matchingUrls = body.hasOwnProperty('matches') ? body.matches.map(m => m.threat.url) : [];
-            resolve(Object.assign({}, ...urls.map(url => {
+    return axios.post(BASE_URL.replace('{key}', options.apiKey), body)
+        .then(body => {
+            let matchingUrls = body.data.hasOwnProperty('matches') ? body.data.matches.map(m => m.threat.url) : [];
+            return Object.assign({}, ...urls.map(url => {
                 let entry = {};
                 entry[url] = matchingUrls.includes(url);
                 return entry;
-            })));
+            }));
         });
-    });
 }
 
 function checkSingle(url) {
