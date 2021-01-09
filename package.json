@@ -1,6 +1,6 @@
 {
   "name": "safe-browse-url-lookup",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simplified wrapper for Google's Safe Browsing API v4 to check whether a URL is malicious or not. See https://developers.google.com/safe-browsing/v4/ for more information.",
   "main": "lib.js",
   "scripts": {
